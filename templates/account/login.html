@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'css/login.css' %}">
 </head>
 <body>
-    <form method="post" action="{% url 'account:login' %}">
-        {% csrf_token %}
-        {% include "account/form_errors.html" %}
-        <label for="username">사용자ID</label>
-        <input type="text" name="username"
-            value="{{ form.username.value|default_if_none:'' }}">
-
-        <label for="password">비밀번호</label>
-        <input type="password" name="password"
-            value="{{ form.password.value|default_if_none:'' }}">
-        <button type="submit">로그인</button>
-
-    </form>
+    <div class ="lnb">
+        <div><img src="#"/></div>
+    </div>
+    <div class = "login_form">
+        <form method="post" action="{% url 'account:login' %}">
+            {% csrf_token %}
+            {% include "account/form_errors.html" %}
+            <label for="username">사용자ID</label>
+            <input type="text" name="username"
+                value="{{ form.username.value|default_if_none:'' }}">
+    
+            <label for="password">비밀번호</label>
+            <input type="password" name="password"
+                value="{{ form.password.value|default_if_none:'' }}">
+            <button type="submit">로그인</button>
+        </form>
+    </div>
 </body>
 </html>

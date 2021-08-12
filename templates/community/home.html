@@ -5,24 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANIMAL</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'css/home.css' %}">
 </head>
 <body>
-    <div class="main-content">
-        반려동물의 최상의 컨디션을.. 
+    <div class ="first_gnb">
+        <div><img src="#"/></div>
+        <div>
+            <p><a href="{%url 'account:signup' %}">회원가입</a></p>
+
+            {% if user.is_authenticated %}
+            <p><a href="{%url 'account:logout' %}">로그아웃</a></p>
+            {% else %}
+            <p><a href="{%url 'account:login' %}">로그인</a></p>
+            {% endif %}
+        </div>
     </div>
-    <table>
+    <div class="main-content">
+        <div>
+            반려동물의 최상의 컨디션을.. 
+        </div>
+        <div>
+            고등어의 몸길이는 40cm가 넘으며 몸빛깔은 등쪽은 녹색으로 검은색의 물결무늬가 옆줄까지 분포되어 있고, 배쪽은 은백색이다.
+            수온이 10-20℃인 맑은 물에서 살며, 바다의 표층과 중층에 산다. 보통 봄과 여름에는 얕은 곳으로, 가을에는 깊은 곳으로 이동한다.
+            산란기는 5-7월경이며, 가을에 맛이 있다. 
+        </div>
+    </div>
+    <table class="request">
         <tr>
             <td><a href="{%url 'readJogging' %}">산책의뢰</a></td>
             <td><a href="{%url 'readCare' %}">임보의뢰</a></td>
             <td><a href="{% url 'new' %}">글쓰기</a></td>
         </tr>
     </table>
-    <p><a href="{%url 'account:signup' %}">회원가입</a></p>
-
-    {% if user.is_authenticated %}
-    <p><a href="{%url 'account:logout' %}">로그아웃</a></p>
-    {% else %}
-    <p><a href="{%url 'account:login' %}">로그인</a></p>
-    {% endif %}
 </body>
 </html>
