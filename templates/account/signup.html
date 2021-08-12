@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>회원가입</h3>
+    <h3><a href="{% url 'account:login' %}">로그인</a></h3>
+
+    <form method="post" action="{% url 'account:signup' %}">
+        {% csrf_token %}
+        <div>
+            <label for="username">사용자ID</label>
+            <input type="text" name="username"
+                value="{{ form.username.value|default_if_none:'' }}">
+        </div>
+       <div>
+        <label for="password">비밀번호</label>
+        <input type="password" name="password"
+            value="{{ form.password1.value|default_if_none:'' }}">
+       </div>
+       <div>
+        <label for="confirm">비밀번호 확인</label>
+        <input type="password" name="confirm"
+            value="{{ form.password2.value|default_if_none:'' }}">
+       </div>
+       <div>
+        <label for="email">이메일</label>
+        <input type="text" name="email"
+            value="{{ form.email.value|default_if_none:'' }}">
+       </div>
+        <button type="submit">가입하기</button>
+    </form>
+</body>
+</html>
