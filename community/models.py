@@ -1,8 +1,10 @@
 from django.db import models
 from django.db.models.fields import related
 from django.utils.timezone import now
+from django.contrib.auth.models import User
 # Create your models here.
 class newJogging(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     animal_choices = [
         ('DOG', 'dog'),
         ('CAT', 'cat'),
@@ -24,7 +26,7 @@ class newJogging(models.Model):
     kind=models.CharField(max_length=50)
     caution=models.TextField(blank=True)
     price=models.IntegerField(blank=True)
-    image=models.ImageField(upload_to='images/', blank=True, null=True)
+    image=models.ImageField(upload_to="jogimages/", blank=True, null=True)
     title=models.CharField(max_length=100)
     content=models.TextField(blank=True)
 
@@ -55,7 +57,7 @@ class newCare(models.Model):
     kind=models.CharField(max_length=50)
     caution=models.TextField(blank=True)
     price=models.IntegerField(blank=True)
-    image=models.ImageField(upload_to='images/', blank=True, null=True)
+    image=models.ImageField(upload_to="careimages/", blank=True, null=True)
     title=models.CharField(max_length=100)
     content=models.TextField(blank=True)
 
@@ -63,3 +65,11 @@ class newCare(models.Model):
         return self.title
 
 
+
+class commentJogging(models.Model):
+    post = models.ForeignKey(newJogging, related_name="comments", on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.TextField(blank=False)
+
+    def __str__(self):
+        return self.comment

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +28,7 @@
             <input type="password" name="password"
                 value="{{ form.password.value|default_if_none:'' }}">
             <button type="submit">로그인</button>
+            <p><a href="{% url 'account:signup' %}">회원가입</a></p>
         </form>
     </div>
 </body>

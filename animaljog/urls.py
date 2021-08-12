@@ -29,5 +29,6 @@ urlpatterns = [
     path('community/jogging', community.views.readJogging, name="readJogging"),
     path('community/care', community.views.readCare, name="readCare"),
     path('community/jogging/<int:jog_id>', community.views.detailJogging, name="detailJogging"),
+    path('community/jogging/comment/<int:jog_id>', community.views.commentJog, name="commentJog"),
     path('account/', include('account.urls'))
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

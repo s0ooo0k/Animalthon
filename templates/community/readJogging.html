@@ -11,10 +11,12 @@
     <div class="jogging-content">
         {% for jog in jogs.all %} 
             <p><a href="{% url 'detailJogging' jog.id %}">{{jog.title}}</a></p>
+            {% if jog.image %}
+                 <img src="{{jog.image.url}}" width="300px">
+            {% endif %}
             <p>{{jog.area}}</p>
             <p>{{jog.kind}}</p>
             <p>{{jog.price}}</p>
-            <img src="{{jog.image.url}}" height="300px" width="200px">
         {% endfor %}
     </div>
 </body>

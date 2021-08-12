@@ -10,7 +10,10 @@
     <div>
         <table>
            <tr><td>{{joggingobject.title}}</td></tr> 
-           <tr><td><img src="{{joggingobject.image.url}}" width="300px" height="500px"></td></tr>
+           <tr><td>{{joggingobject.author}}</td></tr>
+            {% if joggingobject.image %}
+                 <img src="{{joggingobject.image.url}}" width="300px">
+            {% endif %}
             <tr><td>{{joggingobject.animal_kind}}</td></tr>
             <tr><td>{{joggingobject.area}}</td></tr>
             <tr><td>{{joggingobject.start_time}}</td></tr>
@@ -20,7 +23,19 @@
             <tr><td>{{joggingobject.caution}}</td></tr>
             <tr><td>{{joggingobject.content}}</td></tr>
         </table>
+
+        <div>
+            {% for comment in joggingobject.comments.all %} 
+                <p>{{comment.author}} </p>
+                <p>{{comment.comment}}</p>
+            {% empty %}
+                <p>not yet</p>
+            {% endfor %}
+        </div>
        
+
+        <a href="{% url 'commentJog' joggingobject.id %}">댓글 등록</a>
+
     </body>
     </div>
     
