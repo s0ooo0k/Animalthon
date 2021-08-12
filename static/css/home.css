@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+body {
+  min-width: 1000px;
+}
+
+.first_gnb {
+  width: 100%;
+  height: 75px;
+  min-width: 1000px;
+  background: white;
+  display: flex;
+  border-bottom: 1px solid gray;
+  overflow: hidden;
+}
+.first_gnb > div:nth-of-type(1) {
+  position: relative;
+  left: 100px;
+  height: 70px;
+  width: 15%;
+  background-color: aquamarine;
+}
+.first_gnb > div:nth-of-type(2) {
+  position: absolute;
+  right: 100px;
+  overflow: hidden;
+  margin-top: 24px;
+}
+.first_gnb > div:nth-of-type(2) > p {
+  float: left;
+  margin-left: 14px;
+  font-size: large;
+}
+.first_gnb > div:nth-of-type(2) > p > a {
+  color: cadetblue;
+  padding-right: 14px;
+  border-right: 2px solid cadetblue;
+}
+.first_gnb > div:nth-of-type(2) > p:nth-of-type(3) > a {
+  border: 0;
+}
+
+.main-content {
+  position: relative;
+  left: 100px;
+  top: 50px;
+}
+.main-content > div:nth-of-type(1) {
+  font-size: 2.3em;
+  font-weight: 600;
+}
+.main-content > div:nth-of-type(2) {
+  width: 30%;
+  margin-top: 20px;
+  font-size: 1.1em;
+  line-height: 170%;
+}
+
+.request {
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+  width: 50%;
+  height: 50%;
+  background-color: silver;
+  margin-right: 10px;
+}
