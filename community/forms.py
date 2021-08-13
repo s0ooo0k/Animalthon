@@ -1,5 +1,5 @@
 from django import forms
-from .models import newJogging, newCare, commentJogging
+from .models import newJogging, newCare, commentJogging, commentCare
 
 class newJoggingform(forms.ModelForm):
     class Meta:
@@ -15,4 +15,10 @@ class newCareform(forms.ModelForm):
 class commentJoggingform(forms.ModelForm):
     class Meta:
         model = commentJogging
+        fields = ['comment']
+
+
+class commentCareform(forms.ModelForm):
+    class Meta:
+        model = commentCare
         fields = ['comment']

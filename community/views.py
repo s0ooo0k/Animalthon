@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render, get_object_or_404
-from .models import newJogging, newCare, commentJogging
-from .forms import newJoggingform, newCareform, commentJoggingform
+from .models import newJogging, newCare, commentJogging, commentCare
+from .forms import newJoggingform, newCareform, commentJoggingform, commentCareform
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 # Create your views here.
@@ -45,7 +45,12 @@ def readCare(request):
 
 def detailJogging(request, jog_id):
     joggingobject = get_object_or_404(newJogging, pk=jog_id)
-    return render(request, 'community/detailJogging.html', {'joggingobject':joggingobject})
+    return render(request, 'community/detailJogging.html', {'joggingobject':joggingobject})\
+
+
+def detailCare(request, care_id):
+    careobject = get_object_or_404(newCare, pk=care_id)
+    return render(request, 'community/detailCare.html', {'careobject':careobject})
 
 
 
@@ -67,3 +72,19 @@ def commentJog(request, jog_id):
         
 
 
+
+@login_required(login_url='account:login')
+def commentJog(request, care_id):
+    care = get_object_or_404(newCare, pk=care_id)
+
+    if request.method == "POST":
+        form = commentCareform(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = care
+            comment.author = request.user
+            comment.save()
+            return redirect('detailCare', care_id)
+    else:
+        form=commentJoggingform()
+        return render(request, 'community/commentCare.html', {'form':form})

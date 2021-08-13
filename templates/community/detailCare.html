@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div>
+        <table>
+           <tr><td>{{careobject.title}}</td></tr> 
+           <tr><td>{{careobject.author}}</td></tr>
+            {% if careobject.image %}
+                 <img src="{{careobject.image.url}}" width="300px">
+            {% endif %}
+            <tr><td>{{careobjectt.animal_kind}}</td></tr>
+            <tr><td>{{careobject.area}}</td></tr>
+            <tr><td>{{careobject.start_time}}</td></tr>
+            <tr><td>{{careobject.end_time}}</td></tr>
+            <tr><td>{{careobject.kind}}</td></tr>
+            <tr><td>{{careobject.price}}</td></tr>
+            <tr><td>{{careobject.caution}}</td></tr>
+            <tr><td>{{careobject.content}}</td></tr>
+        </table>
+
+        <div>
+            {% for comment in careobject.comments.all %} 
+                <p>{{comment.author}} </p>
+                <p>{{comment.comment}}</p>
+            {% empty %}
+                <p>not yet</p>
+            {% endfor %}
+        </div>
+       
+
+        <a href="{% url 'commentCare' careobject.id %}">댓글 등록</a>
+    </div>
+{% endblock %}
