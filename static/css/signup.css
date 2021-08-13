@@ -18,7 +18,7 @@ body {
   min-width: 1000px;
   background: white;
   display: flex;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgba(83, 83, 83, 0.24);
   overflow: hidden;
   display: flex;
 }
@@ -26,7 +26,7 @@ body {
   position: relative;
   height: 70px;
   width: 350px;
-  background-color: aquamarine;
+  text-align: center;
   margin: 0 auto;
 }
 
@@ -35,21 +35,44 @@ body {
   text-align: center;
 }
 .text > p {
-  font-size: 1.1em;
+  font-size: 0.95em;
   font-weight: 400;
+  text-decoration: underline;
+  text-underline-position: under;
 }
 
 .register_form {
   margin-top: 30px;
   display: flex;
   justify-content: center;
-  background-color: rgb(209, 216, 214);
 }
 .register_form > form > div > label {
   display: block;
-  margin-top: 10px;
+  margin-top: 20px;
+  font-weight: 600;
+  color: rgb(117, 117, 117);
+}
+.register_form > form > div > input {
+  border: 1px solid rgba(83, 83, 83, 0.24);
+  background-color: rgb(223, 223, 223);
+  width: 250px;
+  height: 35px;
 }
 .register_form > form > button {
+  width: 250px;
+  height: 50px;
+  line-height: 3px;
+  position: relative;
   display: block;
-  margin-top: 10px;
+  margin-top: 40px;
+  border-radius: 30px;
+  padding: 10px 40px;
+  font-weight: 600;
+  border: 2px solid #d3b084;
+  color: #d3b084;
+  background-color: white;
+}
+.register_form > form > button:hover {
+  background-color: #d3b084;
+  color: white;
 }
