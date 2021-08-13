@@ -9,7 +9,7 @@
             <div class="jogging-content">
             <p><a href="{% url 'detailJogging' jog.id %}">{{jog.title}}</a></p>
             {% if jog.image %}
-                 <img src="{{jog.image.url}}" width="300px">
+                <img src="{{jog.image.url}}" width="300px">
             {% endif %}
             <p>{{jog.area}}</p>
             <p>{{jog.kind}}</p>
