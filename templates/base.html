@@ -11,9 +11,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <link rel = "stylesheet" type = "text/css" href = "{% static 'css/new.css' %}">
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'css/home.css' %}">
+    {% block extrahead %}
+    {% endblock %}
 </head>
 <body>
+    <div class ="first_gnb">
+        <div><a href="{%url 'home' %}"><img src="{% static 'image/logo_black.png' %}" width=250px></a></div>
+        <div>
+            <p><a href="{%url 'account:signup' %}">회원가입</a></p>
+            {% if user.is_authenticated %}
+            <p><a href="{%url 'account:logout' %}">로그아웃</a></p>
+            {% else %}
+            <p><a href="{%url 'account:login' %}">로그인</a></p>
+            {% endif %}
+        </div>
+    </div>
     {% block content %}
     {% endblock %}
 </body>

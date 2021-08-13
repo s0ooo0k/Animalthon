@@ -1,26 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
+<head>
+    {% block extrahead %}
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'css/new.css' %}">
+    {% endblock %}
+</head>
 {% block content %}
-
-    <div class ="lnb">
-        <div>
-            <p><a href="{%url 'home' %}">홈으로 돌아가기</a></p>
-        </div>
-        <div><img src="#"/></div>
+    <div class="create">
+        <div class="text-box a">어떤 종류의 의뢰를 맡기세요?</div>
+        <div class="text-box b">둘 중 하나의 의뢰유형을 선택해주세요.</div>
+        <a href="{% url 'createJogging' %}" class="text-box c">산책의뢰</a>
+        <a href="{% url 'createCare' %}" class="text-box d">임보의뢰</a>
     </div>
-    <div class="content">
-        <h2>어떤 종류의 의뢰를 맡기세요?</h2>
-        <h3>둘 중 하나의 의뢰유형을 선택해주세요.</h3>
-        <div class="seclect">
-            <table>
-                <tr>
-                    <td><a href="{% url 'createJogging' %}">산책의뢰</a></td>
-                    <td><a href="{% url 'createCare' %}">임보의뢰</a></td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
 {% endblock %}
