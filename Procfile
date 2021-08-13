@@ -1,0 +1,1 @@
+web: gunicorn animaljog.wsgi --log-file -
