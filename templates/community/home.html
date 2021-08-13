@@ -11,6 +11,7 @@
     <title>Document</title>
 </head>
 <body>
+    
     <div class ="first_gnb">
         <div><img src="{% static 'image/logo_black.png' %}" width=250px></div>
         <div>
@@ -22,6 +23,7 @@
             {% endif %}
         </div>
     </div>
+    <img class = "bg" src = "{% static 'image/home_image02.jpg' %}">
     <div class="container">
         <div class="box">
             반려동물에게 최고의 컨디션을🐶
@@ -30,7 +32,6 @@
             갑자기 집을 비워야할 때!
             <br>
             오랫동안 여행을 떠날때!
-
         </div>
         <a href="{%url 'readJogging' %}" class="box">산책의뢰</a>
         <a href="{%url 'readCare' %}" class="box">임보의뢰</a>
