@@ -10,6 +10,7 @@ li {
 }
 body {
   min-width: 1000px;
+  background-color: #f9f9f9;
 }
 
 .lnb {
@@ -75,4 +76,5 @@ body {
 .register_form > form > button:hover {
   background-color: #d3b084;
   color: white;
+  transition-duration: 0.3s;
 }

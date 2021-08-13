@@ -10,12 +10,55 @@ li {
 }
 body {
   min-width: 1000px;
+  background-color: #f9f9f9;
 }
 
-
-
-
-
+.create {
+  margin-top: 50px;
+}
+.create > div:nth-of-type(1) {
+  font-weight: 600;
+}
+.create > div:nth-of-type(2) {
+  font-weight: 400;
+  font-size: 1.2em;
+  margin-top: -30px;
+  color: rgb(116, 116, 116);
+}
+.create > a {
+  margin-top: 65px;
+  font-size: 35px;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+  text-underline-position: under;
+  color: rgb(49, 49, 49);
+}
+.create > a:nth-of-type(1) {
+  border: 3px solid #99e6d8;
+  background-color: #def5f0;
+  text-shadow: rgba(19, 107, 66, 0.4) 1px 0 10px;
+  border-radius: 20px;
+}
+.create > a:nth-of-type(2) {
+  border: 3px solid #95d2ff;
+  background-color: #d9f0ff;
+  text-shadow: rgba(18, 124, 143, 0.4) 1px 0 10px;
+  border-radius: 20px;
+  margin-left: 15px;
+}
+.create > a:nth-of-type(1):hover {
+  opacity: 100%;
+  background-color: #99e6d8;
+  transition-duration: 0.3s;
+}
+.create > a:nth-of-type(2):hover {
+  color: white;
+  opacity: 100%;
+  background-color: #95d2ff;
+  transition-duration: 0.3s;
+}
 
 /* .lnb {
   width: 100%;
