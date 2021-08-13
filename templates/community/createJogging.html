@@ -5,10 +5,10 @@
 <div class="create-content">
     <div class="text-box-title">산책의뢰</div>
     <div class="new-form">
-        <form method="POST" enctype="multipart/form-data" class="form">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="등록">
+            <input type="submit" class="form-button" value="의뢰 등록">
         </form>
     </div>
 </div>

@@ -2,33 +2,68 @@
 {% load static %}
 
 {% block content %}
-    <div>
-        <table>
-           <tr><td>{{joggingobject.title}}</td></tr> 
-           <tr><td>{{joggingobject.author}}</td></tr>
+<div class="detail-page">
+    <div class="detail">
+        <div class="detail-title">{{joggingobject.title}}</div>
+        <div class="detail-img"> 
             {% if joggingobject.image %}
-                 <img src="{{joggingobject.image.url}}" width="300px">
-            {% endif %}
-            <tr><td>{{joggingobject.animal_kind}}</td></tr>
-            <tr><td>{{joggingobject.area}}</td></tr>
-            <tr><td>{{joggingobject.start_time}}</td></tr>
-            <tr><td>{{joggingobject.end_time}}</td></tr>
-            <tr><td>{{joggingobject.kind}}</td></tr>
-            <tr><td>{{joggingobject.price}}</td></tr>
-            <tr><td>{{joggingobject.caution}}</td></tr>
-            <tr><td>{{joggingobject.content}}</td></tr>
+            <img src="{{joggingobject.image.url}}" class="animal-image" width="300px">
+           {% endif %}
+        </div>
+        <table>
+            <tr>
+                <td class="table-title">작성자</td>
+                <td>{{joggingobject.author}}</td>
+            </tr>
+            <tr>
+                <td class="table-title">동물</td>
+                <td>{{joggingobject.get_animal_kind_display}}</td>
+            </tr>
+            <tr>
+                <td class="table-title">지역</td>
+                <td>{{joggingobject.get_area_display}}</td>
+            </tr>
+            <tr>
+                <td class="table-title">시간</td>
+                <td>{{joggingobject.start_time}}
+                    <br>~{{joggingobject.end_time}}</td>
+            </tr>
+            <tr>
+                <td class="table-title">종류</td>
+                <td>{{joggingobject.kind}}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="table-title">주의사항</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{joggingobject.caution}}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="table-title">내용</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{joggingobject.content}}</td>
+            </tr>
         </table>
-
-        <div>
+    </div>
+    <div class="comment-context">
+        <div class="comment-title">
+            의뢰 신청 댓글
+        </div>
+        <div class="comment">
             {% for comment in joggingobject.comments.all %} 
-                <p>{{comment.author}} </p>
-                <p>{{comment.comment}}</p>
+            <div class="comment-layout">
+                <div class="comment-author">{{comment.author}}</div>
+                <div class="comment-comment">{{comment.comment}}</div>
+            </div>
+            
             {% empty %}
-                <p>not yet</p>
+                <p>아직 신청이 없습니다. <br> 의뢰를 신청해보세요! </p>
+
+           
             {% endfor %}
         </div>
-       
-
-        <a href="{% url 'commentJog' joggingobject.id %}">댓글 등록</a>
+        <a href="{% url 'commentJogging' joggingobject.id %}" class="comment-add-head" >댓글 등록</a>
     </div>
+</div>
 {% endblock %}

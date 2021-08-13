@@ -28,9 +28,19 @@ def createJogging(request):
         return render(request, 'community/createJogging.html', {'form':form})
 
 
+@login_required(login_url='account:login')
 def createCare(request):
-    form = newCareform()
-    return render(request, 'community/createCare.html', {'form':form})
+    if request.method=="POST":
+        form=newCareform(request.POST)
+        if form.is_valid():
+            createcare = form.save(commit=False)
+            createcare.author = request.user
+            createcare.image = request.FILES['image']
+            form.save()
+            return redirect('readCare')    
+    else:
+        form=newCareform()
+        return render(request, 'community/createCare.html', {'form':form})
 
 
 def readJogging(request):
@@ -74,7 +84,7 @@ def commentJog(request, jog_id):
 
 
 @login_required(login_url='account:login')
-def commentJog(request, care_id):
+def commentCare(request, care_id):
     care = get_object_or_404(newCare, pk=care_id)
 
     if request.method == "POST":

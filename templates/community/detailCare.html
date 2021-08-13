@@ -2,33 +2,69 @@
 {% load static %}
 
 {% block content %}
-    <div>
-        <table>
-           <tr><td>{{careobject.title}}</td></tr> 
-           <tr><td>{{careobject.author}}</td></tr>
-            {% if careobject.image %}
-                 <img src="{{careobject.image.url}}" width="300px">
-            {% endif %}
-            <tr><td>{{careobjectt.animal_kind}}</td></tr>
-            <tr><td>{{careobject.area}}</td></tr>
-            <tr><td>{{careobject.start_time}}</td></tr>
-            <tr><td>{{careobject.end_time}}</td></tr>
-            <tr><td>{{careobject.kind}}</td></tr>
-            <tr><td>{{careobject.price}}</td></tr>
-            <tr><td>{{careobject.caution}}</td></tr>
-            <tr><td>{{careobject.content}}</td></tr>
-        </table>
 
-        <div>
-            {% for comment in careobject.comments.all %} 
-                <p>{{comment.author}} </p>
-                <p>{{comment.comment}}</p>
-            {% empty %}
-                <p>not yet</p>
-            {% endfor %}
+    <div class="detail-page">
+        <div class="detail">
+            <div class="detail-title">{{careobject.title}}</div>
+            <div class="detail-img"> 
+                {% if careobject.image %}
+                <img src="{{careobject.image.url}}" class="animal-image" width="300px">
+               {% endif %}
+            </div>
+            <table>
+                <tr>
+                    <td class="table-title">작성자</td>
+                    <td>{{careobject.author}}</td>
+                </tr>
+                <tr>
+                    <td class="table-title">동물</td>
+                    <td>{{careobject.get_animal_kind_display}}</td>
+                </tr>
+                <tr>
+                    <td class="table-title">지역</td>
+                    <td>{{careobject.get_area_display}}</td>
+                </tr>
+                <tr>
+                    <td class="table-title">시간</td>
+                    <td>{{careobject.start_time}}
+                        <br>~{{careobject.end_time}}</td>
+                </tr>
+                <tr>
+                    <td class="table-title">종류</td>
+                    <td>{{careobject.kind}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="table-title">주의사항</td>
+                </tr>
+                <tr>
+                    <td colspan="2">{{careobject.caution}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="table-title">내용</td>
+                </tr>
+                <tr>
+                    <td colspan="2">{{careobject.content}}</td>
+                </tr>
+            </table>
         </div>
-       
+        <div class="comment-context">
+            <div class="comment-title">
+                의뢰 신청 댓글
+            </div>
+            <div class="comment">
+                {% for comment in careobject.comments.all %} 
+                <div class="comment-layout">
+                    <div class="comment-author">{{comment.author}}</div>
+                    <div class="comment-comment">{{comment.comment}}</div>
+                </div>
+                
+                {% empty %}
+                    <p>아직 신청이 없습니다. <br> 의뢰를 신청해보세요! </p>
 
-        <a href="{% url 'commentCare' careobject.id %}">댓글 등록</a>
+               
+                {% endfor %}
+            </div>
+            <a href="{% url 'commentCare' careobject.id %}" class="comment-add-head" >댓글 등록</a>
+        </div>
     </div>
 {% endblock %}

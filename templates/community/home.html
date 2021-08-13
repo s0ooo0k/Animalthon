@@ -23,15 +23,24 @@
             {% endif %}
         </div>
     </div>
-    <img class = "bg" src = "{% static 'image/home_image02.jpg' %}">
+    <img class = "bg" src = "{% static 'image/home_image.jpg' %}">
     <div class="container">
-        <div class="box">
-            반려동물에게 최고의 컨디션을🐶
-            <br>
-            <br>
-            갑자기 집을 비워야할 때!
-            <br>
-            오랫동안 여행을 떠날때!
+        <div class="box-main">
+            <div class="box1"></div>
+            <div class="box2">
+            언제나 행복한 반려동물을 위해🐶
+            </div>
+            <div class= "box3">
+                    갑자기 집을 비워야할 때!
+                    <br>
+                    혹은 오랫동안 여행을 떠나게 될때!
+                    <br>
+                    위풍댕댕은 예기치 못한 사정이 생겼을때, 
+                    <br>동네에서 반려동물을 대신 돌보아줄 사람을 구하거나,
+                    <br>다른 동물을 돌보는 의뢰를 받을 수 있는 사이트입니다.
+                </p>  
+            </div>
+            <div class="box4"></div>          
         </div>
         <a href="{%url 'readJogging' %}" class="box">산책의뢰</a>
         <a href="{%url 'readCare' %}" class="box">임보의뢰</a>
@@ -39,16 +48,3 @@
     </div>
 </body>
 </html>
-
-<!--
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANIMAL</title>
-    <!-- CSS only -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> -->
-    <!-- JavaScript Bundle with Popper -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> -->
-    <!-- <link rel = "stylesheet" type = "text/css" href = "{% static 'css/home.css' %}">
-</head>

@@ -30,5 +30,7 @@ urlpatterns = [
     path('community/care', community.views.readCare, name="readCare"),
     path('community/jogging/<int:jog_id>', community.views.detailJogging, name="detailJogging"),
     path('community/jogging/comment/<int:jog_id>', community.views.commentJog, name="commentJog"),
+    path('community/care/<int:care_id>', community.views.detailCare, name="detailCare"),
+    path('community/care/comment/<int:care_id>', community.views.commentCare, name="commentCare"),
     path('account/', include('account.urls'))
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

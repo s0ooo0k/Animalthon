@@ -4,19 +4,32 @@
 {% block content %}
 <body>
     <div class="text-box-title">임보의뢰</div>
+
     <div class="read">
-            {% for care in cares.all %} 
-            <div class="jogging-content">
-            <p><a href="{% url 'detailCare' care.id %}">{{care.title}}</a></p>
-            {% if care.image %}
-                 <img src="{{care.image.url}}" width="300px">
-            {% endif %}
-            <p>{{careg.area}}</p>
-            <p>{{care.kind}}</p>
-            <p>{{care.price}}</p>
-            </div>
-            {% endfor %}
-    </div>
+        {% for care in cares.all %} 
+        <a href="{% url 'detailCare' care.id %}" class="read-hover">
+        <div class="jogging-content">
+        
+        <div class="read-title">{{care.title}}</div>
+        {% if care.image %}
+           <div class="image-check"><img src="{{care.image.url}}" class="read-animal-image" height="300px"></div>
+        {% endif %}
+        <div class="read-category">
+            지역
+            <div class="read-text">{{care.get_area_display}}</div>
+        </div>
+        <div class="read-category">
+            품종
+            <div class="read-text">{{care.kind}}</div>
+        </div>
+        <div class="read-category">
+            의뢰비
+            <div class="read-text">{{care.price}}</div>
+        </div>
+        </div>
+    </a>
+        {% endfor %}
+</div>
 </body>
 </html>
 {% endblock %}

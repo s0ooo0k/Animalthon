@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Send</button>
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="create-comment">
+    <div class="create-comment-title">의뢰 신청</div>
+    <div class="create-comment-text">댓글은 한 번 작성하면 수정할 수 없으니, 신중하게 작성해주세요!</div>
+    <div class="login_form">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Send</button>
+        </form>
+    </div>   
+</div>
+{% endblock %}

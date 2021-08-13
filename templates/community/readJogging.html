@@ -4,17 +4,30 @@
 {% block content %}
 <body>
     <div class="text-box-title">산책의뢰</div>
+   
     <div class="read">
             {% for jog in jogs.all %} 
+            <a href="{% url 'detailJogging' jog.id %}" class="read-hover">
             <div class="jogging-content">
-            <p><a href="{% url 'detailJogging' jog.id %}">{{jog.title}}</a></p>
+            
+            <div class="read-title">{{jog.title}}</div>
             {% if jog.image %}
-                <img src="{{jog.image.url}}" width="300px">
+               <div class="image-check"><img src="{{jog.image.url}}" class="read-animal-image" height="300px"></div>
             {% endif %}
-            <p>{{jog.area}}</p>
-            <p>{{jog.kind}}</p>
-            <p>{{jog.price}}</p>
+            <div class="read-category">
+                지역
+                <div class="read-text">{{jog.get_area_display}}</div>
             </div>
+            <div class="read-category">
+                품종
+                <div class="read-text">{{jog.kind}}</div>
+            </div>
+            <div class="read-category">
+                의뢰비
+                <div class="read-text">{{jog.price}}</div>
+            </div>
+            </div>
+        </a>
             {% endfor %}
     </div>
 </body>
