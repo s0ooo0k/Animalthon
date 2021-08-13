@@ -73,3 +73,12 @@ class commentJogging(models.Model):
 
     def __str__(self):
         return self.comment
+
+
+class commentCare(models.Model):
+    post = models.ForeignKey(newCare, related_name="comments", on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.TextField(blank=False)
+
+    def __str__(self):
+        return self.comment
