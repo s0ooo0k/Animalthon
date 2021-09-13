@@ -1,4 +1,10 @@
 # animalthon
+<h3> 멋쟁이사자처럼 9기 해커톤 </h3>
+
+반려동물을 위한 임시보호 및 산책 서비스
+
+front & design : 이주희
+front & back : 지현숙
 
 - templates
   - login.html : 로그인 페이지
