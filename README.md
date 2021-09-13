@@ -3,7 +3,7 @@
 
 반려동물을 위한 임시보호 및 산책 서비스
 
-front & design : 이주희
+front & design : 이주희<br>
 front & back : 지현숙
 
 - templates
